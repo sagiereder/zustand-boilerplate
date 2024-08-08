@@ -8,6 +8,8 @@ Features:
 
 ## Example
 
+you'll need to install zustand & reflect-metadata for zustand-boilerplate to work
+
 ```
 import { create } from "zustand"
 import * as Z from "zustand-boilerplate"

@@ -24,9 +24,13 @@ export function Any() {
 const pascalCase = (str: string) => str.charAt(0).toUpperCase() + str.slice(1)
 
 export type InstanceWithActions<T extends object> = T & {
-  [K in keyof T as `get${Capitalize<string & K>}`]: () => T[K]
+  [K in keyof T as T[K] extends any
+    ? `get${Capitalize<string & K>}`
+    : never]: () => T[K]
 } & {
-  [K in keyof T as `set${Capitalize<string & K>}`]: (value: T[K]) => void
+  [K in keyof T as T[K] extends any ? `set${Capitalize<string & K>}` : never]: (
+    value: T[K],
+  ) => void
 } & {
   [K in keyof T as T[K] extends boolean
     ? `toggle${Capitalize<string & K>}`

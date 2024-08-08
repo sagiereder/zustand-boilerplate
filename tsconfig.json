@@ -18,7 +18,6 @@
     "outDir": "dist",
     "resolveJsonModule": true,
     "experimentalDecorators": true,
-
     "types": ["vitest/globals"]
   }
 }
